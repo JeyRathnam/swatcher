@@ -1,25 +1,24 @@
-import React from 'react';
-import logo from './logo.svg';
-import './App.css';
+import React, {useState} from 'react';
+import 'rc-color-picker/assets/index.css';
+import Swatch from './Components/Swatch'
+import styled from 'styled-components';
+import Export from './Components/Export'
 
+const ParentDiv = styled.div`
+margin: 0 auto;
+display: inline-block;
+float: left;
+`;
 function App() {
+  const [colors, setColors] = useState(['#000000']);
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <React.Fragment>
+      <ParentDiv>
+        <Swatch colors={colors} setColors={setColors}/>
+        <Export colors={colors} />
+      </ParentDiv>
+      
+    </React.Fragment>
   );
 }
 
