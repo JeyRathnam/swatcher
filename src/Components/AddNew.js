@@ -1,11 +1,15 @@
 import React from 'react'
 import styled from 'styled-components';
 
+const Container = styled.div`
+padding: 10px;
+`;
 const NewButton = styled.div`
     border-radius: 50%;
   width: ${props => (props.width ? props.width : '25px')};
   height: ${props => (props.height ? props.height : '25px')};
   background-color: rgb(44,108,128);
+  margin: 0 auto;
 `;
 
 const HorizontalPlus = styled.div`
@@ -17,7 +21,7 @@ position: relative;
   top: 43.75%;
   `;
 
-  const VerticalPlus = styled.div`
+const VerticalPlus = styled.div`
   position: relative;
   background-color: #FFFFFF;
   width: 12.5%;
@@ -27,12 +31,14 @@ position: relative;
   `;
 
 function AddNew(props) {
-return (
-    <NewButton width={props.width} height={props.height} onClick={props.handleAddNewClick}>
+  return (
+    <Container>
+      <NewButton width={props.width} height={props.height} onClick={props.handleAddNewClick}>
         <HorizontalPlus />
         <VerticalPlus />
-    </NewButton>
-)
+      </NewButton>
+    </Container>
+  )
 
 }
 

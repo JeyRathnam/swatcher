@@ -1,29 +1,25 @@
 import React, { useState } from 'react'
-import AddNew from './AddNew'
 import ColorPicker from 'rc-color-picker'
 
-function Swatch({colors, setColors}) {
-    function AddNewColor() {
-        setColors(colors.concat('#000000'))
-    }
+function Swatch({ colors, setColors }) {
+
     function handleColorChange(i, c) {
         const t = colors
         t[i] = c.color
         setColors(t)
     }
-    
+
     return (
         <React.Fragment>
-        {colors.map(function(x, i){
-            if(i <= 20) {
-            return <ColorPicker key={i}
-            animation="slide-up"
-            color={x}
-            onChange={(colors) => handleColorChange(i, colors)} 
-            />
-            }
-        })}
-        <AddNew handleAddNewClick={AddNewColor} />
+            {colors.map(function (x, i) {
+                if (i <= 20) {
+                    return <ColorPicker key={i}
+                        animation="slide-up"
+                        color={x}
+                        onChange={(colors) => handleColorChange(i, colors)}
+                    />
+                }
+            })}
         </React.Fragment>
     )
 
