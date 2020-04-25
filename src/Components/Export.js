@@ -22,6 +22,7 @@ const Container = styled.div`
 
 function Export(props) {
     const { colors } = props;
+    
 
     function exportJson() {
         const data = [{ swatches: [] }];
@@ -38,14 +39,14 @@ function Export(props) {
                 colorSpace
             });
         });
-
+    
         return JSON.stringify(data);
     }
 
     function exportTozip() {
         const data = exportJson();
         var zip = new JSZip();
-        zip.file('swatches.json', data)
+        zip.file('Swatches.json', data)
         zip.generateAsync({ type: "blob" })
             .then(function (content) {
                 saveAs(content, "export.swatches");
