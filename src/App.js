@@ -4,11 +4,11 @@ import Swatch from './Components/Swatch'
 import styled from 'styled-components';
 import Export from './Components/Export';
 import AddNew from './Components/AddNew';
+import Header from './Components/Header';
 
 import './styles.css';
 
 const ParentDiv = styled.div`
-// margin: 0 auto;
 display: contents;
 float: left;
 width: 100%;
@@ -18,6 +18,7 @@ function App() {
   const [colors, setColors] = useState(['#000000', '#126443', '#763209', '#443091', '#568212']);
   return (
     <React.Fragment>
+      <Header />
       <ParentDiv>
         <Swatch colors={colors} setColors={setColors} />
       </ParentDiv>
